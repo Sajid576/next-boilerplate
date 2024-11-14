@@ -318,5 +318,16 @@
             "message": "How are you?",
             "timestamp": 1661976143678
         }
-    ]
+    ],
+    "login":{
+        "message": "success",
+        "success": true,
+        "data": {
+          "name": "Super Admin",
+          "userType": "super",
+          "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ZjAyNTBkMS03NTc1LTRiNmMtYjg1Yy0yZDM3YThlM2ZkZjAiLCJuYW1lIjoiU3VwZXIgQWRtaW4iLCJlbWFpbCI6InN1cGVyX2FkbWluQGdtYWlsLmNvbSIsInVzZXJUeXBlIjoic3VwZXIiLCJpYXQiOjE3MzE1NzMxNzAsImV4cCI6MTAwMTczMTU2NjI5MH0.3xGHnMKAjclesAOvArQbGOBk1Ju2pqUcT8fHFVziY1w",
+          "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ZjAyNTBkMS03NTc1LTRiNmMtYjg1Yy0yZDM3YThlM2ZkZjAiLCJ0b2tlblR5cGUiOiJyZWZyZXNoIiwiaWF0IjoxNzMxNTczMTcwLCJleHAiOjEwMDE3MzE1NjYyOTB9.xRwuu8xNA_6Zv_1x-hrMwHR3wVe_ekMxwXCLalDpZks",
+          "tokenExpirationTime": "999999993120s"
+        }
+      }
 }

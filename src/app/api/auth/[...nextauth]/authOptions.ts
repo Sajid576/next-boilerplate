@@ -15,44 +15,31 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_AUTH_API_BASE_URL}/users/login`,
-          {
-            method: "POST",
-            body: JSON.stringify({
-              email: credentials?.email,
-              password: credentials?.password,
-            }),
-            headers: { "Content-Type": "application/json" },
+        
+        // const res = await fetch(
+        //   `${process.env.NEXT_PUBLIC_FAKE_API_BASE_URL}/login`,
+        //   {
+        //     method: "POST",
+        //     body: JSON.stringify({
+        //       email: credentials?.email,
+        //       password: credentials?.password,
+        //     }),
+        //     headers: { "Content-Type": "application/json" },
+        //   }
+        // );
+        // const user = await res.json();
+        
+        return {
+          "message": "success",
+          "success": true,
+          "data": {
+            "name": "Super Admin",
+            "userType": "super",
+            "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ZjAyNTBkMS03NTc1LTRiNmMtYjg1Yy0yZDM3YThlM2ZkZjAiLCJuYW1lIjoiU3VwZXIgQWRtaW4iLCJlbWFpbCI6InN1cGVyX2FkbWluQGdtYWlsLmNvbSIsInVzZXJUeXBlIjoic3VwZXIiLCJpYXQiOjE3MzE1NzMxNzAsImV4cCI6MTAwMTczMTU2NjI5MH0.3xGHnMKAjclesAOvArQbGOBk1Ju2pqUcT8fHFVziY1w",
+            "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ZjAyNTBkMS03NTc1LTRiNmMtYjg1Yy0yZDM3YThlM2ZkZjAiLCJ0b2tlblR5cGUiOiJyZWZyZXNoIiwiaWF0IjoxNzMxNTczMTcwLCJleHAiOjEwMDE3MzE1NjYyOTB9.xRwuu8xNA_6Zv_1x-hrMwHR3wVe_ekMxwXCLalDpZks",
+            "tokenExpirationTime": "999999993120s"
           }
-        );
-        const user = await res.json();
-        // console.log("Login successful", user.data);
-        // If no error and we have user data, return it
-
-        if (res.ok && user) {
-          const userInfoResponse = await fetch(
-            `${process.env.NEXT_PUBLIC_API_BASE_URL}/internal-user/my-info`,
-            {
-              method: "GET",
-              headers: {
-                Authorization: `Bearer ${user.data.accessToken}`,
-                "Content-Type": "application/json",
-              },
-            }
-          );
-
-          const userInfo = await userInfoResponse.json();
-          
-          if (userInfo) {
-            return {
-              email: userInfo?.data?.email,
-              status: userInfo?.data?.status,
-              ...user.data,
-            };
-          }
-        }
-        return null;
+        };
       },
     }),
   ],

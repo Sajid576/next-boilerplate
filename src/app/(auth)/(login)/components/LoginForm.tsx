@@ -30,14 +30,14 @@ export default function LoginForm() {
 
     console.log("response", response);
     if (!response?.error) {
-      router.push("/products");
+      router.push("/dashboard");
       router.refresh();
     }
   }
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-4">
-        <TextField label="Email" name="email" form={form} />
+        <TextField label="Email" name="email" form={form} placeholder="Enter Email" />
         <PasswordField />
         <Button type="submit" className="w-full mt-4">
           Login

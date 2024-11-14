@@ -15,6 +15,7 @@ const rules = auth.rewriter({
     users: 640,
     conversations: 660,
     messages: 660,
+    login: 330
 });
 
 server.use(rules);
@@ -22,3 +23,4 @@ server.use(auth);
 server.use(router);
 
 server.listen(port);
+console.log("FAKE Server listening on PORT:"+port)

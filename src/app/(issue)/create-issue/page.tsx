@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function PlaygroundPage() {
+export default function CreateIssue() {
   return (
     <>
       
